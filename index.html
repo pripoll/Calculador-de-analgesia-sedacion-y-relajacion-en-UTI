@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calc. ASR v1</title>
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calculator-frame">
         <header class="main-header">
-            <h1>CALC. ASR V1</h1>
+            <h1>Calc. ASR v1</h1>
             <p class="status-label">ANALGESIA · SEDACIÓN · RELAJACIÓN</p>
         </header>
         <div class="input-panel">
-            <div class="control-group inline-flex">
-                <label>SEXO:</label>
+            <div class="control-group full-width">
+                <label>Sexo</label>
                 <div class="radio-group">
                     <input type="radio" name="sex" value="male" id="sex-m" checked> <label for="sex-m">Masculino</label>
                     <input type="radio" name="sex" value="female" id="sex-f"> <label for="sex-f">Femenino</label>
                 </div>
             </div>
             <div class="control-group">
-                <label>ALTURA EN CM</label>
-                <input type="number" id="height" step="1" placeholder="170">
+                <label>Altura en cm</label>
+                <input type="number" id="height" step="1" placeholder="Ej: 170">
             </div>
             <div class="control-group">
-                <label>PESO EN KG</label>
-                <input type="number" id="weight" step="0.1" placeholder="70.0">
+                <label>Peso en kg</label>
+                <input type="number" id="weight" step="0.1" placeholder="Ej: 75.5">
             </div>
         </div>
-        <button class="compute-btn" onclick="runAsrCalculation()">CALCULAR</button>
+        <button class="compute-btn" onclick="runAsrCalculation()">Calcular</button>
         <div id="data-display" class="data-display"></div>
         <footer class="legal-footer">
             <div class="footer-links">
@@ -42,10 +42,66 @@
         </footer>
     </div>
 
-    <div id="modal-biblio" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-biblio')">&times;</span><h2>Bibliografía</h2><p>1. Jacobi J, et al. Clinical practice guidelines for the sustained use of sedatives and analgesics in the critically ill adult. Crit Care Med. 2002;30(1):119-41.<br>2. Devlin JW, et al. Clinical Practice Guidelines for the Prevention and Management of Pain, Agitation/Sedation, Delirium, Immobility, and Sleep Disruption in Adult Patients in the ICU. Crit Care Med. 2018;46(9):e825-e873.<br>3. Shapiro BA, et al. Practice parameters for intravenous analgesia and sedation for adult patients in the intensive care unit. Crit Care Med. 1995.</p></div></div>
-    <div id="modal-info" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-info')">&times;</span><h2>Información</h2><p>Morfina: No se le aplican cálculos relacionados al peso corporal. Fentanilo, Midazolam, Lorazepam, Propofol: En IMC >30, se ajustan automáticamente al "peso corregido". Dexmedetomidina: No se le aplican ajustes por IMC aumentado. Remifentanilo, Atracurio, Vecuronio: En IMC >30, se ajustan automáticamente al "peso teórico".</p></div></div>
-    <div id="modal-about" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-about')">&times;</span><h2>Acerca de</h2><p>Equipo de desarrollo conformado por estudiantes, graduados y docentes de la Facultad de Informática. Universidad Nacional del Comahue.</p></div></div>
-    <div id="modal-contact" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-contact')">&times;</span><h2>Contacto</h2><p>Facultad de Informática - Universidad Nacional del Comahue (UNCO). Dirección: Buenos Aires 1400. Neuquén Capital, Argentina. Correo electrónico: extension.fi@uncoma.edu.ar</p></div></div>
+    <div id="modal-biblio" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-biblio')">&times;</span>
+            <h2>Bibliografía</h2>
+            <div class="scroll-area">
+                <p>1. Jacobi J, Fraser GL, Coursin DB, et al. Clinical practice guidelines for the sustained use of sedatives and analgesics in the critically ill adult. Crit Care Med. 2002;30(1):119-41.</p>
+                <p>2. Devlin JW, Skrobik Y, Gélinas C, et al. Clinical Practice Guidelines for the Prevention and Management of Pain, Agitation/Sedation, Delirium, Immobility, and Sleep Disruption in Adult Patients in the ICU. Crit Care Med. 2018;46(9):e825-e873.</p>
+                <p>3. Shapiro BA, Warren J, Egol AB, et al. Practice parameters for intravenous analgesia and sedation for adult patients in the intensive care unit: an executive summary. Society of Critical Care Medicine. Crit Care Med. 1995;23(9):1596-605.</p>
+                <p>4. Nasraway SA Jr, Jacobi J, Murray MJ, et al. Sedation, analgesia, and neuromuscular blockade of the critically ill adult: revised clinical practice guidelines for 2002. Crit Care Med. 2002;30(1):117.</p>
+                <p>5. Barr J, Fraser GL, Puntillo K, et al. Clinical practice guidelines for the management of pain, agitation, and delirium in adult patients in the intensive care unit. Crit Care Med. 2013;41(1):263-306.</p>
+                <p>6. Rebuck JA, Murry DJ, Heffner JE, et al. Effect of obesity on the pharmacokinetics of drugs used in critically ill patients. Clin Pharmacokinet. 2004;43(15):1043-63.</p>
+                <p>7. Erstad BL. Dosage adjustment of medications in the critically ill obese patient. In: Erstad BL, editor. Critical Care Pharmacotherapy. 1st ed. Chicago: American College of Clinical Pharmacy; 2016.</p>
+                <p>8. Bauer LA, Edwards AD, Dellinger EP, et al. Influence of weight on aminoglycoside pharmacokinetics in normal weight and morbidly obese patients. Eur J Clin Pharmacol. 1983;24(5):643-7.</p>
+                <p>9. Green B, Duffull SB. What is the best predictor of pharmacokinetics in obesity? Clin Pharmacokinet. 2004;43(4):203-13.</p>
+                <p>10. Ingrande J, Lemmens HJ. Dose adjustment of anesthetics in the morbidly obese. Curr Opin Anaesthesiol. 2010;23(3):323-8.</p>
+                <p>11. Cheymol G. Effects of obesity on pharmacokinetics: implications for drug therapy. Clin Pharmacokinet. 2000;39(3):215-31.</p>
+                <p>12. Hanley MJ, Abernethy DR, Greenblatt DJ. Effect of obesity on drug disposition and elimination: update 2010. Clin Pharmacokinet. 2010;49(2):71-87.</p>
+                <p>13. Blouin RA, Warren GW. Pharmacokinetics of drugs in obesity. In: Williams RL, Brater DC, Mordenti J, editors. Rational Therapeutics: A Clinical Pharmacologic Guide for the 21st Century. New York: Marcel Dekker; 1999.</p>
+                <p>14. Leykin Y, Pellis T, Lucca M, et al. Effects of perioperative nonsteroidal anti-inflammatory drugs on post-operative pain and cortisol levels in the morbidly obese. Minerva Anestesiol. 2007;73(5):259-66.</p>
+                <p>15. Abernethy DR, Greenblatt DJ. Drug disposition in obese humans: an update. Clin Pharmacokinet. 1986;11(3):199-217.</p>
+                <p>16. Green B, Duffull SB. Estimating lean body weight in clinical practice. Br J Clin Pharmacol. 2002;54(3):323-5.</p>
+                <p>17. Janmahasatian S, Duffull SB, Ash S, et al. Quantification of lean bodyweight. Clin Pharmacokinet. 2005;44(10):1051-65.</p>
+                <p>18. James WPT. Research on obesity. London: Her Majesty's Stationery Office; 1976.</p>
+                <p>19. Hume R. Prediction of lean body mass from height and weight. J Clin Pathol. 1966;19(4):389-91.</p>
+                <p>20. Boer P. Estimated lean body mass as an index for normalization of body fluid volumes in humans. Am J Physiol. 1984;247(4 Pt 2):F632-6.</p>
+                <p>21. Devine BJ. Gentamicin ethyldiaminotetraacetic acid clearance: a new method for estimating glomerular filtration rate. Drug Intell Clin Pharm. 1974;8:650-5.</p>
+                <p>22. Robinson JD, Lupkiewicz SM, Palenik L, et al. Determination of ideal body weight for drug dosage. Am J Hosp Pharm. 1983;40(6):1016-9.</p>
+                <p>23. Miller DR. Ideal body weight. In: Applied Pharmacokinetics: Principles of Therapeutic Drug Monitoring. 3rd ed. Vancouver: Applied Therapeutics; 1992.</p>
+                <p>24. Hamwi GJ. Therapy: changing concepts in diabetes mellitus. In: Danowski TS, editor. Diabetes Mellitus: Diagnosis and Treatment. New York: American Diabetes Association; 1964.</p>
+                <p>25. Lemmens HJ, Bernstein DP, Brodsky JB. Estimating ideal body weight: a new formula. Obes Surg. 2006;16(11):1544-5.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-info" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-info')">&times;</span>
+            <h2>Información</h2>
+            <p>Morfina: No se le aplican cálculos relacionados al peso corporal.</p>
+            <p>Fentanilo, Midazolam, Lorazepam, Propofol: En IMC >30, se ajustan automáticamente al "peso corregido".</p>
+            <p>Dexmedetomidina: No se le aplican ajustes por IMC aumentado.</p>
+            <p>Remifentanilo, Atracurio, Vecuronio: En IMC >30, se ajustan automáticamente al "peso teórico".</p>
+        </div>
+    </div>
+
+    <div id="modal-about" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-about')">&times;</span>
+            <h2>Acerca de</h2>
+            <p>Equipo de desarrollo conformado por estudiantes, graduados y docentes de la Facultad de Informática. Universidad Nacional del Comahue.</p>
+        </div>
+    </div>
+
+    <div id="modal-contact" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal-contact')">&times;</span>
+            <h2>Contacto</h2>
+            <p>Facultad de Informática - Universidad Nacional del Comahue (UNCO). Dirección: Buenos Aires 1400. Neuquén Capital, Argentina. Correo electrónico: extension.fi@uncoma.edu.ar</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
