@@ -1,0 +1,59 @@
+:root {
+    --bg-base: #141619;
+    --panel-bg: #202328;
+    --accent-blue: #5b87b3;
+    --text-primary: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border-ui: #334155;
+    --warning-clr: #ef4444;
+}
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+    margin: 0;
+}
+.calculator-frame {
+    background-color: var(--panel-bg);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border: 1px solid var(--border-ui);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+.main-header {
+    border-bottom: 2px solid var(--accent-blue);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+h1 { margin: 0; font-size: 1.2rem; font-weight: 500; letter-spacing: 1px; }
+.status-label { margin: 5px 0 0 0; font-size: 0.6rem; color: var(--accent-blue); font-weight: 800; }
+.input-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+.control-group { display: flex; flex-direction: column; }
+.inline-flex { grid-column: span 2; flex-direction: row; align-items: center; gap: 20px; }
+.radio-group { display: flex; gap: 15px; align-items: center; }
+label { font-size: 0.65rem; color: var(--text-muted); margin-bottom: 5px; font-weight: 600; }
+input[type="number"] { background-color: #141619; border: 1px solid var(--border-ui); padding: 10px; color: #fff; font-size: 1rem; }
+.compute-btn { width: 100%; padding: 15px; background-color: var(--accent-blue); color: white; border: none; font-weight: 700; cursor: pointer; letter-spacing: 1px; }
+.data-display { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.stat-box { background-color: #141619; padding: 10px; border-bottom: 1px solid var(--border-ui); display: flex; justify-content: space-between; font-size: 0.85rem; }
+.stat-label { color: var(--text-muted); }
+.drug-table { width: 100%; margin-top: 15px; border-collapse: collapse; font-size: 0.7rem; }
+.drug-table th { text-align: left; color: var(--accent-blue); padding: 8px; border-bottom: 1px solid var(--border-ui); }
+.drug-table td { padding: 8px; border-bottom: 1px solid #2a2e35; }
+.disclaimer-box { margin-top: 20px; font-size: 0.6rem; color: var(--warning-clr); border: 1px solid var(--warning-clr); padding: 10px; text-align: justify; line-height: 1.4; }
+.legal-footer { margin-top: 25px; text-align: center; font-size: 0.65rem; color: var(--text-muted); }
+.footer-links { margin-bottom: 10px; cursor: pointer; color: var(--accent-blue); font-weight: 600; }
+.footer-links span:hover { text-decoration: underline; }
+
+/* Modal Styles */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+.modal-content { background-color: var(--panel-bg); margin: 15% auto; padding: 20px; border: 1px solid var(--border-ui); width: 80%; max-width: 500px; color: var(--text-primary); }
+.modal-content h2 { color: var(--accent-blue); font-size: 1rem; margin-top: 0; border-bottom: 1px solid var(--border-ui); padding-bottom: 10px; }
+.modal-content p { font-size: 0.75rem; line-height: 1.6; }
+.close { color: var(--text-muted); float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+.close:hover { color: #fff; }
