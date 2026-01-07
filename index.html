@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASR Infusion Precision Navigator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-frame">
+        <header class="main-header">
+            <h1>ASR INFUSION PRECISION NAVIGATOR</h1>
+            <p class="status-label">ANALGESIA · SEDATION · BLOCKADE</p>
+        </header>
+        <div class="input-panel">
+            <div class="control-group inline-flex">
+                <label>SEX:</label>
+                <div class="radio-group">
+                    <input type="radio" name="sex" value="male" id="sex-m" checked> <label for="sex-m">M</label>
+                    <input type="radio" name="sex" value="female" id="sex-f"> <label for="sex-f">F</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>HEIGHT (CM)</label>
+                <input type="number" id="height" step="1" placeholder="170">
+            </div>
+            <div class="control-group">
+                <label>ACTUAL WEIGHT (KG)</label>
+                <input type="number" id="weight" step="0.1" placeholder="70.0">
+            </div>
+        </div>
+        <button class="compute-btn" onclick="runAsrCalculation()">EXECUTE CLINICAL ANALYSIS</button>
+        <div id="data-display" class="data-display"></div>
+        <div class="disclaimer-box">
+            CRITICAL NOTICE: Dosage adjustments for BMI > 30 are performed automatically. NMBA and Remifentanil calculations utilize Ideal Body Weight (IBW), while most sedatives use Adjusted Body Weight (ABW).
+        </div>
+        <footer class="legal-footer">
+            <div class="footer-links">
+                <span onclick="openModal('modal-biblio')">Bibliography</span> · 
+                <span onclick="openModal('modal-info')">Information</span> · 
+                <span onclick="openModal('modal-about')">About</span> · 
+                <span onclick="openModal('modal-contact')">Contact</span>
+            </div>
+            <p>Designed by Pablo I. Ripoll · Buenos Aires, 2026</p>
+        </footer>
+    </div>
+
+    <div id="modal-biblio" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-biblio')">&times;</span><h2>Bibliography</h2><p>1. Jacobi J, et al. Clinical practice guidelines for the sustained use of sedatives and analgesics in the critically ill adult. Crit Care Med 2002.<br>2. Miller's Anesthesia, 9th Edition. Elsevier.<br>3. Handbook of Drugs in Intensive Care, Sasada & Gilbert.</p></div></div>
+    <div id="modal-info" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-info')">&times;</span><h2>Information</h2><p>This tool is for educational use. It does not provide information for initial bolus doses. Calculations for patients with BMI > 30 are automatically adjusted to Ideal Body Weight (IBW) for hydrophilic drugs and Adjusted Body Weight (ABW) for lipophilic drugs.</p></div></div>
+    <div id="modal-about" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-about')">&times;</span><h2>About</h2><p>ASR Infusion Precision Navigator. A web application designed to assist healthcare professionals in calculating correct infusion rates for analgesia, sedation, and neuromuscular blockade.</p></div></div>
+    <div id="modal-contact" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('modal-contact')">&times;</span><h2>Contact</h2><p>Author: Pablo I. Ripoll<br>Email: <a href="mailto:terapiaintensiva@gmail.com">terapiaintensiva@gmail.com</a><br>Buenos Aires, Argentina.</p></div></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
